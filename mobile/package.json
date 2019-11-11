@@ -12,8 +12,11 @@
     "format-code": "yarn run prettier && yarn run lint:fix"
   },
   "dependencies": {
+    "@apollo/react-hooks": "3.1.1",
+    "apollo-boost": "0.4.4",
     "eslint-config-handlebarlabs": "0.0.4",
     "expo": "^35.0.0",
+    "graphql": "14.5.7",
     "react": "16.8.3",
     "react-dom": "16.8.3",
     "react-native": "https://github.com/expo/react-native/archive/sdk-35.0.0.tar.gz",
