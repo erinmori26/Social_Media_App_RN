@@ -6,7 +6,7 @@ export const client = new ApolloClient({
   request: operation => {
     operation.setContext({
       headers: {
-        Authorization: "Bearer 123"
+        Authorization: "Bearer 123" // need to get JWT to do proper authorization
       }
     });
   }

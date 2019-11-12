@@ -1,4 +1,4 @@
-import { gql } from 'apollo-boost';
+import { gql } from "apollo-boost";
 
 export const exampleQuery = gql`
   {
@@ -8,6 +8,7 @@ export const exampleQuery = gql`
   }
 `;
 
+// call in gql
 export const requestFeed = gql`
   {
     feed {
@@ -26,6 +27,7 @@ export const requestFeed = gql`
   }
 `;
 
+// get responses with gql, pass in ID string to get correct responses
 export const requestResponses = gql`
   query Responses($_id: String!) {
     responses(_id: $_id) {

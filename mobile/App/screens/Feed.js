@@ -1,13 +1,14 @@
-import React from 'react';
-import { FlatList, View } from 'react-native';
-import { useQuery, useMutation } from '@apollo/react-hooks';
+import React from "react";
+import { FlatList, View } from "react-native";
+import { useQuery, useMutation } from "@apollo/react-hooks";
 
-import { requestFeed } from '../graphql/queries';
-import { likeStatus } from '../graphql/mutations';
+import { requestFeed } from "../graphql/queries";
+import { likeStatus } from "../graphql/mutations";
 
-import { Status, Separator } from '../components/Status';
+import { Status, Separator } from "../components/Status";
 
 const Feed = ({ navigation }) => {
+  // useQuery from react-hooks makes query easy/reusable
   const { loading, data } = useQuery(requestFeed);
   const [likeStatusFn] = useMutation(likeStatus);
 
@@ -17,14 +18,13 @@ const Feed = ({ navigation }) => {
 
   return (
     <FlatList
-      data={data.feed}
+      data={data.feed} // render feed
       renderItem={({ item }) => (
         <Status
           {...item}
-          onRowPress={() => navigation.push('Thread', { status: item })}
+          onRowPress={() => navigation.push("Thread", { status: item })}
           onHeartPress={() =>
-            likeStatusFn({ variables: { statusId: item._id } })
-          }
+            likeStatusFn({ variables: { statusId: item._id } })}
         />
       )}
       ItemSeparatorComponent={() => <Separator />}

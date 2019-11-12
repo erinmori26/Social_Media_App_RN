@@ -1,16 +1,18 @@
-import React from 'react';
-import { FlatList, View } from 'react-native';
-import { useQuery, useMutation } from '@apollo/react-hooks';
+import React from "react";
+import { FlatList, View } from "react-native";
+import { useQuery, useMutation } from "@apollo/react-hooks";
 
-import { Status, Separator } from '../components/Status';
-import { Button } from '../components/Button';
-import { requestResponses } from '../graphql/queries';
-import { likeStatus } from '../graphql/mutations';
+import { Status, Separator } from "../components/Status";
+import { Button } from "../components/Button";
+import { requestResponses } from "../graphql/queries";
+import { likeStatus } from "../graphql/mutations";
 
 const Thread = ({ navigation }) => {
-  const originalStatus = navigation.getParam('status', {});
+  const originalStatus = navigation.getParam("status", {});
+
+  // get ID of current status to show correct responses
   const { loading, data } = useQuery(requestResponses, {
-    variables: { _id: originalStatus._id },
+    variables: { _id: originalStatus._id }
   });
   const [likeStatusFn] = useMutation(likeStatus);
 
@@ -25,30 +27,29 @@ const Thread = ({ navigation }) => {
         <Status
           {...item}
           onHeartPress={() =>
-            likeStatusFn({ variables: { statusId: item._id } })
-          }
+            likeStatusFn({ variables: { statusId: item._id } })}
           indent={item._id !== originalStatus._id}
         />
       )}
       ItemSeparatorComponent={() => <Separator />}
       keyExtractor={item => item._id}
-      ListFooterComponent={
+      ListFooterComponent={(
         <View
           style={{
             flex: 1,
             marginBottom: 60,
             marginHorizontal: 30,
-            marginTop: 10,
+            marginTop: 10
           }}
         >
           <Button
             text="New Reply"
-            onPress={() =>
-              navigation.navigate('NewStatus', { parent: originalStatus })
+            onPress={
+              () => navigation.navigate("NewStatus", { parent: originalStatus }) // pass original status ID so response is connected
             }
           />
         </View>
-      }
+      )}
     />
   );
 };

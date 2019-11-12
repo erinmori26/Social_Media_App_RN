@@ -2,6 +2,7 @@ const shortid = require("shortid");
 const db = require("./db");
 
 const resolvers = {
+  // get user ID from status
   Status: {
     user: status => {
       return db
@@ -19,16 +20,19 @@ const resolvers = {
   Query: {
     example: () => ({ _id: "1", text: "this is an example" }),
 
+    // access db, list of posts
     feed: () => {
       return db
         .get("feed")
         .filter(
+          // filter, parent id means response
           o => o.parentStatusId === null || o.parentStatusId === undefined
         )
-        .orderBy("publishedAt", "desc")
+        .orderBy("publishedAt", "desc") // order by date
         .value();
     },
 
+    // show status and subsequent responses
     responses: (parent, args) => {
       const originalStatus = db
         .get("feed")
@@ -45,13 +49,16 @@ const resolvers = {
     }
   },
 
+  // for creating statuses
   Mutation: {
     createStatus: (parent, args, context) => {
       if (!context.userId) {
         throw new Error("Must be a user.");
       }
 
+      // create ID for status
       const _id = shortid.generate();
+      // parameters of new status
       const newStatus = {
         _id,
         userId: context.userId,
@@ -60,11 +67,12 @@ const resolvers = {
         parentStatusId: args.status.parentStatusId
       };
 
-      // console.log(newStatus);
+      // write new status to database
       db.get("feed")
         .push(newStatus)
         .write();
 
+      // return new status from database
       return db
         .get("feed")
         .find({ _id })

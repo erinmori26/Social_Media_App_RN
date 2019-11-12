@@ -13,6 +13,46 @@
       "status": "This is an example response, which is really just a status with a parent. Isn't it great?!",
       "publishedAt": "2019-09-12T15:52:01.169Z",
       "parentStatusId": "1"
+    },
+    {
+      "_id": "WwaeO1EI",
+      "userId": "user-2",
+      "status": "Yes!",
+      "publishedAt": "2019-11-11T02:39:09.229Z",
+      "parentStatusId": "1"
+    },
+    {
+      "_id": "P4CwUn45",
+      "userId": "user-2",
+      "status": "What’s happening?",
+      "publishedAt": "2019-11-11T02:39:25.682Z"
+    },
+    {
+      "_id": "gK5BxQ1q",
+      "userId": "user-2",
+      "status": "No clue",
+      "publishedAt": "2019-11-11T02:39:32.334Z",
+      "parentStatusId": "P4CwUn45"
+    },
+    {
+      "_id": "XE4u18ub",
+      "userId": "user-2",
+      "status": "Hello jane",
+      "publishedAt": "2019-11-11T07:42:20.924Z",
+      "parentStatusId": "1"
+    },
+    {
+      "_id": "4dI-A3No",
+      "userId": "user-2",
+      "status": "Hello world",
+      "publishedAt": "2019-11-11T07:42:32.421Z"
+    },
+    {
+      "_id": "HbjeH8lu",
+      "userId": "user-2",
+      "status": "Hehiahdjk",
+      "publishedAt": "2019-11-11T07:42:44.742Z",
+      "parentStatusId": "4dI-A3No"
     }
   ],
   "users": [
@@ -29,5 +69,11 @@
       "username": "@john_doe"
     }
   ],
-  "likes": {}
+  "likes": {
+    "user-2": {
+      "1": true,
+      "XE4u18ub": true,
+      "WwaeO1EI": true
+    }
+  }
 }

@@ -1,5 +1,6 @@
 const { gql } = require("apollo-server");
 
+// define different types in the app
 const typeDefs = gql`
   type Example {
     _id: String
