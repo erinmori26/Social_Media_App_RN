@@ -92,6 +92,7 @@ const resolvers = {
       const currentLikes = db.get(key, {}).value();
       const currentLikeStatus = currentLikes[args.statusId] || false;
 
+      // mutate (set like)
       db.set(key, {
         ...currentLikes,
         [args.statusId]: !currentLikeStatus
