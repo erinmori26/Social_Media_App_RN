@@ -15,9 +15,8 @@ const styles = StyleSheet.create({
   }
 });
 
-export const NewStatusInput = ({ ...props }) => (
+export const NewStatusLink = ({ ...props }) => (
   <View style={styles.container}>
-    <TextInput style={styles.input} multiline numberOfLines={6} {...props} />
     <TextInput style={styles.input} multiline numberOfLines={1} {...props} />
   </View>
 );
