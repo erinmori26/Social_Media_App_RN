@@ -63,7 +63,6 @@ const resolvers = {
         _id,
         userId: context.userId,
         status: args.status.text,
-        image: args.status.image, ///////////////////////
         publishedAt: new Date().toISOString(),
         parentStatusId: args.status.parentStatusId,
         image: args.status.image ///////////////////////

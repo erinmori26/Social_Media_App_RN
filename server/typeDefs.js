@@ -39,7 +39,7 @@ const typeDefs = gql`
   }
 
   type Mutation {
-    createStatus(status: StatusInput, image: StatusInput): Status
+    createStatus(status: StatusInput, image: String): Status
     likeStatus(statusId: String!): Status
   }
 `;

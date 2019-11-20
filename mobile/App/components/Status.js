@@ -8,6 +8,7 @@ import {
   Dimensions
 } from "react-native";
 import formatDistanceToNow from "date-fns/formatDistanceToNow";
+import Linking from "expo";
 
 const Screen = Dimensions.get("window");
 
@@ -91,7 +92,12 @@ export const Status = ({
           <Text style={styles.textUsername}>{user.username}</Text>
         </View>
 
-        <Text style={styles.textStatus}>{image}</Text>
+        <Text
+          style={styles.textStatus}
+          onPress={() => (image == null ? "" : Linking.openURL(image))}
+        >
+          {image}
+        </Text>
         <Text style={styles.textStatus}>{status}</Text>
 
         <View style={styles.actions}>
