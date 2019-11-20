@@ -1,18 +1,18 @@
-import React from 'react';
-import { View, TextInput, StyleSheet } from 'react-native';
+import React from "react";
+import { View, TextInput, StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: 'row',
+    flexDirection: "row",
     padding: 10,
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: "#fff"
   },
   input: {
     flex: 1,
-    alignItems: 'center',
-    textAlignVertical: 'top',
-  },
+    alignItems: "center",
+    textAlignVertical: "top"
+  }
 });
 
 export const NewStatusInput = ({ ...props }) => (

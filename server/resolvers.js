@@ -64,7 +64,8 @@ const resolvers = {
         userId: context.userId,
         status: args.status.text,
         publishedAt: new Date().toISOString(),
-        parentStatusId: args.status.parentStatusId
+        parentStatusId: args.status.parentStatusId,
+        image: args.status.image ///////////////////////
       };
 
       // write new status to database

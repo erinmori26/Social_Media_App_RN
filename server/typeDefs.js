@@ -23,6 +23,7 @@ const typeDefs = gql`
     parentStatusId: String
     user: User
     isLiked: Boolean
+    image: String
   }
 
   type Query {
@@ -34,10 +35,11 @@ const typeDefs = gql`
   input StatusInput {
     text: String!
     parentStatusId: String
+    image: String
   }
 
   type Mutation {
-    createStatus(status: StatusInput): Status
+    createStatus(status: StatusInput, image: StatusInput): Status
     likeStatus(statusId: String!): Status
   }
 `;
