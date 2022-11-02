@@ -17,7 +17,7 @@
     "date-fns": "^2.7.0",
     "eslint-config-handlebarlabs": "0.0.4",
     "expo": "^35.0.0",
-    "expo-cli": "^3.4.0",
+    "expo-cli": "^6.0.6",
     "graphql": "14.5.7",
     "react": "16.8.3",
     "react-dom": "16.8.3",
